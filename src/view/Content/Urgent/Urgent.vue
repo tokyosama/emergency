@@ -29,30 +29,10 @@ instance.Run()
                 click
             </el-button>
         </div>
-        <el-dialog v-model="addAlert" title="添加警情" width="600px">
-            <el-form :model="form" label-width="120px">
-                <el-form-item label="Activity name">
-                    <el-input v-model="form.extarea" :rows="2" type="textarea" placeholder="描述" />
-                </el-form-item>
-            </el-form>
-
-            <template #footer>
-                <div class="dialog-footer">
-                    <el-button @click="addAlert = false">Cancel</el-button>
-                    <el-button type="primary" @click="addAlert = false">
-                        Confirm
-                    </el-button>
-                </div>
-
-            </template>
-        </el-dialog>
 
 
 
 
-        <!-- <transition>
-            <CreatVue v-show="false"></CreatVue>
-        </transition> -->
     </div>
 </template>
 
