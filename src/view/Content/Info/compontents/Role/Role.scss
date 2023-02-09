@@ -1,0 +1,91 @@
+.role-manage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+        position: relative;
+        width: 250px;
+        height: 100%;
+        background: #fff;
+
+        .role-header {
+            position: absolute;
+            width: 210px;
+            height: 72px;
+            //'角色列表下的灰色线'
+            margin: 0 20px 0px;
+            border-bottom: 1px solid #eee;
+            color: #222222;
+
+            .role-list {
+                position: relative;
+                top: 30px;
+                left: 30px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            .role-add {
+                @extend .role-list;
+                left: 110px;
+                color: #4DA2FF;
+                cursor: pointer;
+            }
+        }
+
+        .role-container {
+            position: absolute;
+            height: 100%;
+            //列表距离顶端
+            top: 92px;
+            width: 210px;
+            margin: 0 20px 0px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            :deep(.el-button) {
+                --el-button-hover-bg-color: #4DA2FF;
+                --el-button-hover-text-color: #fff;
+                // background-color:#222222;
+            }
+
+            .role-item {
+                //rela为了几个角色块隔开
+                position: relative;
+                line-height: 40px;
+                height: 40px;
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                //强制按钮左对齐
+                margin-left: 0;
+
+
+                .role-name {
+                    position: absolute;
+                    font-weight: 400;
+                    // color: #333333;
+                    left: 10px;
+                    line-height: 40px;
+                    font-size: 14px;
+                }
+
+                .role-edit {
+                    position: absolute;
+                    top: 13px;
+                    right: 48px;
+
+                }
+
+                .role-del {
+                    position: absolute;
+                    top: 13px;
+                    right: 20px;
+                }
+            }
+        }
+    }
+}

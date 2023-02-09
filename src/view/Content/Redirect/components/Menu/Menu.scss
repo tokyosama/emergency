@@ -1,0 +1,52 @@
+.Menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+
+    // background: #333;
+    .List {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #c1c1c1;
+
+        .Item {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            border-bottom: #111315 1px solid;
+            cursor: pointer;
+
+            &:hover {
+                background: linear-gradient(120deg, #b4a6d8, #628cb6);
+            }
+
+            .Icon {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    position: absolute;
+                    width: 50%;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: auto;
+                }
+
+            }
+        }
+
+        .Active {
+            background: linear-gradient(120deg, #656371, #111315);
+        }
+    }
+}

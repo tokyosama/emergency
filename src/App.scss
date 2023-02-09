@@ -1,0 +1,288 @@
+// 全局字体
+@font-face {
+  font-family: PFBOLD;
+  src: url("./assets/fonts/PFBOLD.ttf");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: PFBOLD;
+  user-select: none;
+}
+
+//弹窗
+.el-dialog {
+  border-radius: 6px !important;
+
+  .el-dialog__header {
+    width: calc(100% - 40px);
+    background: #333333 !important;
+    border-radius: 6px 5px 0px 0px !important;
+    overflow: hidden;
+
+    .el-dialog__title {
+      font-size: 16px !important;
+      color: #fff !important;
+      letter-spacing: 2px !important;
+      font-family: "PingFang SC" !important;
+      border-left: 5px solid #fff !important;
+      padding-left: 20px !important;
+    }
+  }
+
+  .el-dialog__headerbtn {
+    .el-dialog__close {
+      color: #ffffff !important;
+    }
+  }
+}
+
+.el-message-box {
+  border: none !important;
+
+  .el-message-box__header {
+    width: 100%;
+    background: #333333 !important;
+
+    .el-message-box__title {
+      font-size: 16px !important;
+      color: #fff !important;
+      letter-spacing: 2px !important;
+      font-family: "PingFang SC" !important;
+      border-left: 5px solid #fff !important;
+      padding-left: 20px !important;
+      user-select: none !important;
+    }
+
+    .el-message-box__headerbtn {
+      .el-message-box__close {
+        color: #ffffff !important;
+      }
+    }
+
+  }
+
+  .el-message-box__content {
+    padding-top: 23px !important;
+    padding-bottom: 7px !important;
+    user-select: none !important;
+  }
+}
+
+
+.cesium-viewer-bottom,
+.cesium-widget-credits {
+  display: none !important;
+}
+
+.amap-logo,
+.amap-copyright {
+  display: none !important;
+}
+
+.amap-overlay-text-container {
+  overflow: initial !important;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: #363a3b;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -8px;
+    transform: rotate(45deg);
+  }
+}
+
+.amap-marker-label {
+  position: absolute;
+  z-index: 2;
+  border: none;
+  background-color: transparent;
+}
+
+.MarkerLabel {
+  position: absolute;
+  border: none;
+  white-space: nowrap;
+  cursor: default;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  line-height: 25px;
+  height: 26px;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: transparent;
+  width: 40px;
+  text-align: center;
+}
+
+.Marker_Info {
+  position: absolute;
+  border: none;
+  background-color: rgba(36, 37, 57, 0.9);
+  white-space: nowrap;
+  cursor: default;
+  color: #ffffff;
+  border-radius: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  line-height: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+  transform: translateX(-50%)
+}
+
+.Marker_Dock {
+  @extend .Marker_Info;
+  background-color: transparent;
+  color: #5A5A69;
+}
+
+.Circle_Part {
+  @extend .Marker_Dock;
+  color: #212121;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+
+.Marker_Action {
+  position: absolute;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: default;
+  color: #576FEB;
+  border-radius: 0px;
+  border: 1px solid #E1E1E6;
+  padding: 7px 14px 7px 14px;
+  line-height: 20px;
+  text-align: center;
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  transform: translateX(-50%)
+}
+
+
+//FIXME:章文俊：设置默认样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #969696;
+  border-radius: 3px;
+}
+
+/* 进入之前和离开后的样式 */
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+/* 离开和进入过程中的样式 */
+.v-enter-active,
+.v-leave-active {
+  /* 添加过渡动画 */
+  transition: opacity 0.2s ease;
+}
+
+/* 进入之后和离开之前的样式 */
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+
+.page-container {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.red {
+  color: #D03050;
+}
+
+/* 列表搜索框 */
+.seach-form {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  padding: 0 20px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+  .n-input,
+  .n-input--focus {
+    background: #F3F3F3 !important;
+  }
+
+  .add-btn,
+  .add-btn:hover {
+    background: linear-gradient(-23deg, #5593FF, #78A9FF);
+    box-shadow: 0px 5px 10px 0px rgba(85, 147, 255, 0.35);
+    color: #fff;
+
+  }
+}
+
+/* 列表头部阴影 */
+.n-data-table-base-table-header {
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.05) !important;
+  background: #fff;
+}
+
+// 表格操作按钮
+.table-btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+
+.table-btn-update {
+  background-image: url("./assets/table/update.png");
+}
+
+.table-btn-view {
+  background-image: url("./assets/table/view.png");
+}
+
+.table-btn-delete {
+  background-image: url("./assets/table/delete.png");
+}

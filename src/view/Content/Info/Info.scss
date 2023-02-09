@@ -1,0 +1,63 @@
+.app-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    .list-search {
+        min-height: 73px;
+
+        .tab-btn {
+            margin-bottom: 18px;
+            width: 230px;
+
+            .clearfix {}
+
+            &>span {
+                position: relative;
+                margin: 0 20px;
+                font-size: 18px;
+                color: #888;
+                cursor: pointer;
+
+                &::after {
+                    display: none;
+                    content: "";
+                    position: absolute;
+                    bottom: -24px;
+                    left: 50%;
+                    margin-left: -14px;
+                    width: 24px;
+                    height: 2px;
+                    background: linear-gradient(-45deg, #006CE3, #756EFF);
+                }
+
+                &.active {
+                    color: #4070FC;
+                }
+
+                &.active::after {
+                    display: inline;
+                }
+            }
+        }
+
+    }
+
+    .tab-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .role {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .account {
+        @extend .role;
+    }
+
+}

@@ -1,0 +1,19 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="44px" height="49px">
+<defs>
+<linearGradient id="PSgrad_0" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
+  <stop offset="0%" stop-color="rgb(72,187,91)" stop-opacity="1" />
+  <stop offset="100%" stop-color="rgb(116,215,133)" stop-opacity="1" />
+</linearGradient>
+
+</defs>
+<path fill-rule="evenodd"  opacity="0.251" fill="rgb(0, 0, 0)"
+ d="M22.000,41.375 C24.226,41.375 26.031,42.186 26.031,43.187 C26.031,44.188 24.226,45.000 22.000,45.000 C19.774,45.000 17.969,44.188 17.969,43.187 C17.969,42.186 19.774,41.375 22.000,41.375 Z"/>
+<path fill-rule="evenodd"  fill="rgb(103, 51, 51)"
+ d="M26.516,37.720 L22.000,43.190 L17.483,37.720 C10.290,35.778 5.000,29.336 5.000,21.667 C5.000,12.462 12.611,5.000 22.000,5.000 C31.389,5.000 39.000,12.462 39.000,21.667 C39.000,29.336 33.709,35.778 26.516,37.720 Z"/>
+<path stroke-width="2px" stroke="rgb(255, 255, 255)" fill="url(#PSgrad_0)"
+ d="M26.516,37.720 L22.000,43.190 L17.483,37.720 C10.290,35.778 5.000,29.336 5.000,21.667 C5.000,12.462 12.611,5.000 22.000,5.000 C31.389,5.000 39.000,12.462 39.000,21.667 C39.000,29.336 33.709,35.778 26.516,37.720 Z"/>
+<text kerning="auto" font-family="Adobe Heiti Std" fill="rgb(0, 0, 0)" font-size="14px" x="14px" y="27px"><tspan font-size="14px" font-family="Microsoft YaHei" fill="#FFFFFF">&#36215;</tspan></text>
+</svg>
