@@ -19,7 +19,7 @@ class AMapResource {
             AMapLoader.load({
                 key: "9ff344d55da8b201fe549f3ecb362c4c",
                 version: "2.0",
-                plugins: ['AMap.Geolocation', 'AMap.AutoComplete', 'AMap.GeometryUtil'],
+                plugins: ['AMap.Geolocation', 'AMap.AutoComplete', 'AMap.GeometryUtil', 'AMap.Geocoder'],
             }).then((e) => {
                 this.aMap = e
                 resolve('AMAP')

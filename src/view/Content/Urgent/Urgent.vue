@@ -24,10 +24,10 @@ instance.Run()
             </div>
         </div>
         <div class="Create">
-            <CreatVue></CreatVue>
-            <!-- <transition>
-                
-            </transition> -->
+
+            <transition>
+                <CreatVue></CreatVue>
+            </transition>
 
         </div>
 

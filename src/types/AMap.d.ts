@@ -80,6 +80,271 @@ declare namespace AMap {
 
     }
 
+    /** MarkerShapeOptions */
+    export interface MarkerShapeOptions {
+        /**可点击区域组成元素数组, 存放图形的像素坐标等信息, 该数组元素由type决定: - circle: coords格式为 [x1, y1, r], x1, y1为圆心像素坐标, r为圆半径 - poly: coords格式为 [x1, y1, x2, y2 … xn, yn], 各x, y表示多边形边界像素坐标 - rect: coords格式为 [x1, y1, x2, y2], x1, y1为矩形左上角像素坐标, x2, y2为矩形右下角像素坐标 Markshape的像素坐标是指相对于marker的左上角的像素坐标偏移量*/
+        coords?: Array<number>;
+
+        /**可点击区域类型, 可选值: - circle: 圆形 - poly: 多边形 - rect: 矩形*/
+        type?: string;
+
+    }
+
+    /** MarkerShape */
+    export class MarkerShape {
+        /**构造一个Marker可点击区域对象, 通过MarkerShapeOptions设置可点击区域属性*/
+        constructor(opt: MarkerShapeOptions);
+    }
+
+    /** IconOptions */
+    export interface IconOptions {
+        /**图标尺寸, 默认值(36, 36)*/
+        size?: Size;
+
+        /**图标取图偏移量。当image中指定了一个大图时, 可通过size和imageOffset配合, 显示图标的指定范围*/
+        imageOffset?: Pixel;
+
+        /**图标的取图地址。默认为蓝色图钉图片*/
+        image?: string;
+
+        /**图标所用图片大小, 根据所设置的大小拉伸或压缩图片, 等同于CSS中的background-size属性。可用于实现高清屏的高清效果*/
+        imageSize?: Size;
+
+    }
+
+    /** MarkerShape */
+    export class Icon {
+        /**构造点覆盖物图标, 通过IconOptions设置图标属性*/
+        constructor(opt: IconOptions);
+        /**获取图标图片大小*/
+        public getImageSize(): Size;
+
+        /**设置图标图片大小*/
+        public setImageSize(size: Size): void;
+
+
+    }
+
+    /** MarkerOptions */
+    export interface MarkerOptions {
+        /**要显示该marker的地图对象*/
+        map?: Map;
+
+        /**点标记在地图上显示的位置, 默认为地图中心点*/
+        position?: LngLat | number[];
+
+        /**点标记显示位置偏移量, 默认值为Pixel(-10, -34)。Marker指定position后, 默认以marker左上角位置为基准点, 对准所给定的position位置, 若需使marker指定位置对准在position处, 需根据marker的尺寸设置一定的偏移量。*/
+        offset?: Pixel;
+
+        /**需在点标记中显示的图标。可以是一个本地图标地址, 或者Icon对象。有合法的content内容时, 此属性无效*/
+        icon?: string | Icon;
+
+        /**点标记显示内容, 可以是HTML要素字符串或者HTML DOM对象。content有效时, icon属性将被覆盖*/
+        content?: string | any;
+
+        /**鼠标点击时marker是否置顶, 默认false , 不置顶
+        * (自v1.3 新增)*/
+        topWhenClick?: boolean;
+
+        /**是否将覆盖物的鼠标或touch等事件冒泡到地图上
+        * (自v1.3 新增) 默认值: false*/
+        bubble?: boolean;
+
+        /**设置点标记是否可拖拽移动, 默认为false*/
+        draggable?: boolean;
+
+        /**设置拖拽点标记时是否开启点标记离开地图的效果*/
+        raiseOnDrag?: boolean;
+
+        /**指定鼠标悬停时的鼠标样式, 自定义cursor, IE仅支持cur/ani/ico格式, Opera不支持自定义cursor*/
+        cursor?: string;
+
+        /**点标记是否可见, 默认为true*/
+        visible?: boolean;
+
+        /**点标记的叠加顺序。地图上存在多个点标记叠加时, 通过该属性使级别较高的点标记在上层显示 默认zIndex: 100*/
+        zIndex?: number;
+
+        /**点标记的旋转角度, 广泛用于改变车辆行驶方向 注: angle属性是使用CSS3来实现的, 支持IE9及以上版本*/
+        angle?: number;
+
+        /**是否自动旋转。点标记在使用moveAlong动画时, 路径方向若有变化, 点标记是否自动调整角度, 默认为false。广泛用于自动调节车辆行驶方向。 IE8以下不支持旋转, autoRotation属性无效*/
+        autoRotation?: boolean;
+
+        /**点标记的动画效果, 默认值: “AMAP_ANIMATION_NONE”
+        * 可选值:
+        * “AMAP_ANIMATION_NONE”, 无动画效果
+        * “AMAP_ANIMATION_DROP”, 点标掉落效果
+        * “AMAP_ANIMATION_BOUNCE”, 点标弹跳效果*/
+        animation?: string;
+
+        /**点标记阴影, 不设置该属性则点标记无阴影*/
+        shadow?: Icon;
+
+        /**鼠标滑过点标记时的文字提示, 不设置则鼠标滑过点标无文字提示*/
+        title?: string;
+
+        /**点标记是否可点击*/
+        clickable?: boolean;
+
+        /**设置Marker的可点击区域, 在定义的区域内可触发Marker的鼠标点击事件*/
+        shape?: MarkerShape;
+
+        /**用户自定义属性, 支持JavaScript API任意数据类型, 如Marker的id等*/
+        extData?: any;
+
+        /**添加文本标注, content为文本标注的内容, offset为偏移量, 左上角为偏移量为(0, 0)*/
+        label?: { content: string, offset: LngLat };
+
+        anchor?: string
+    }
+
+    /** Marker类 */
+    export class Marker {
+        /**构造一个点标记对象, 通过MarkerOptions设置点标记对象的属性*/
+        constructor(opt: MarkerOptions);
+        /**唤起高德地图客户端标注页其中Object里面包含有{ name: String, name属性 必要参数 position:
+        * LngLat 坐标点 }*/
+        public markOnAMAP(obj: any): void;
+
+        /**获取Marker偏移量
+        * (自v1.3 新增)*/
+        public getOffset(): Pixel;
+
+        public on(event: string, callback: Function): void;
+
+        /**设置Marker偏移量
+        * (自v1.3 新增)*/
+        public setOffset(offset: Pixel): void;
+
+        /**设置点标记的动画效果, 默认值: “AMAP_ANIMATION_NONE”
+        * 可选值:
+        * “AMAP_ANIMATION_NONE”, 无动画效果
+        * “AMAP_ANIMATION_DROP”, 点标掉落效果
+        * “AMAP_ANIMATION_BOUNCE”, 点标弹跳效果*/
+        public setAnimation(animate: string): void;
+
+        /**获取点标记的动画效果类型*/
+        public getAnimation(): string;
+
+        /**设置点标记是支持鼠标单击事件*/
+        public setClickable(clickable: boolean): void;
+
+        /**获取点标记是否支持鼠标单击事件*/
+        public getClickable(): boolean;
+
+        /**获取点标记的位置*/
+        public getPosition(): LngLat;
+
+        /**设置点标记位置*/
+        public setPosition(lnglat: LngLat): void;
+
+        /**设置点标记的旋转角度*/
+        public setAngle(angle: number): void;
+
+        /**设置点标记文本标签内容相关示例*/
+        public setLabel(label: any): void;
+
+        /**获取点标记文本标签内容*/
+        public getLabel(): any;
+
+        /**获取点标记的旋转角度*/
+        public getAngle(): number;
+
+        /**设置点标记的叠加顺序, 默认最先添加的点标记在最底层*/
+        public setzIndex(index: number): void;
+
+        /**获取点标记的叠加顺序*/
+        public getzIndex(): number;
+
+        /**设置点标记的显示图标。 参数image可传入String、Icon两种类型的值。
+        * 若为String(图片url), 表示点标记以指定图片形式显示；若为Icon, 表示点标记以Icon对象形式显示*/
+        public setIcon(content: string | Icon): void;
+
+        /**当点标记未自定义图标时, 获取Icon内容*/
+        public getIcon(): string
+            | Icon;
+
+        /**设置点标记对象是否可拖拽移动*/
+        public setDraggable(draggable: boolean): void;
+
+        /**获取点标记对象是否可拖拽移动*/
+        public getDraggable(): boolean;
+
+        /**点标记隐藏*/
+        public hide(): void;
+
+        /**点标记显示*/
+        public show(): void;
+
+        /**设置鼠标悬停时的光标。 参数cur可为CSS标注中的光标样式, 如:
+        * setCursor(“pointer”)等；或者自定义的光标样式, 如:
+        * setCursor("url('http: //http://webapi.amap.com/images/0.png') , pointer")
+        * 注: 当浏览器不支持css2, url值不起作用, 鼠标样式就按pointer来设置*/
+        public setCursor(Cursor: any): string;
+
+        /**设置点标记显示内容, 可以是HTML要素字符串或者HTML DOM对象*/
+        public setContent(html: string | HTMLDivElement): void;
+
+        /**获取点标记内容*/
+        public getContent(): string;
+
+        /**以指定的速度, 点标记沿指定的路径移动。参数path为路径坐标串；speed为指定速度, 单位: 千米/小时； 回调函数f为变化曲线函数, 缺省为function(k){return k}；参数circlable表明是否循环执行动画, 默认为false*/
+        public moveAlong(path: Array<any>, speed: number,
+            f: Function, circlable: boolean): void;
+
+        /**以给定速度移动点标记到指定位置。参数lnglat为指定位置, 必设；speed为指定速度, 单位: 千米/小时；回调函数f为变化曲线函数, 缺省为function(k){return k}。*/
+        public moveTo(lnglat: LngLat, speed: number,
+            f: Function): void;
+
+        /**点标记停止动画*/
+        public stopMove(): void;
+
+        /**暂定点标记的动画效果*/
+        public pauseMove(): void;
+
+        /**重新开始点标记的动画效果*/
+        public resumeMove(): void;
+
+        /**为Marker指定目标显示地图。当参数值取null时, 地图上移除当前Marker: setMap(null)*/
+        public setMap(map?: Map | null): void;
+
+        /**获取Marker所在地图对象*/
+        public getMap(): Map;
+
+        /**鼠标滑过点标时的文字提示*/
+        public setTitle(title: string): void;
+
+        /**获取点标记的文字提示*/
+        public getTitle(): string;
+
+        /**地图上有多个marker时, 当isTop为true时, marker将显示在最前面；当为false时, marker取消置顶*/
+        public setTop(isTop: boolean): void;
+
+        /***/
+        public getTop(): boolean;
+
+        /**为marker设置阴影效果*/
+        public setShadow(icon: Icon): void;
+
+        /**获取marker的阴影图标*/
+        public getShadow(): Icon;
+
+        /**设置marker的可点击区域*/
+        public setShape(shape: MarkerShape): void;
+
+        /**获取marker的可点击区域*/
+        public getShape(): MarkerShape;
+
+        /**设置用户自定义属性, 支持JavaScript API任意数据类型, 如Marker的id等*/
+        public setExtData(ext: any): void;
+
+        /**获取用户自定义属性*/
+        public getExtData(): any;
+
+
+    }
+
     export interface MapOptions {
         /**地图显示的缩放级别，可以设置为浮点数；若center与level未赋值，地图初始化默认显示用户所在城市范围。*/
         zoom?: number;
@@ -261,5 +526,37 @@ declare namespace AMap {
         public on(event: string, callback: Function): void;
 
 
+    }
+
+    export interface GeocoderOptions {
+        /**城市，地理编码时，设置地址描述所在城市可选值：城市名（中文或中文全拼）、citycode、adcode；默认值：“全国” */
+        city?: string;
+        /**逆地理编码时，以给定坐标为中心点，单位：米 */
+        radius?: Number;
+        /**设置语言类型 */
+        lang?: String;
+        /**是否批量查询batch=true为批量查询,batch=false为单点查询，batch=false时即使传入多个点也只返回第一个点结果 */
+        batch?: Boolean;
+        /**逆地理编码时，返回信息的详略,默认值：base，返回基本地址信息；取值为：all，返回地址信息及附近poi、道路、道路交叉口等信息 */
+        extensions?: String;
+
+    }
+
+    export class Geocoder {
+        constructor(opts: GeocoderOptions);
+        /**
+         * 根据给定坐标进行解析当status为complete时，result为ReGeocodeResult；
+         * 当status为error时，result为错误信息info；
+         * 当status为no_data时，代表检索返回0结果
+         * 批量逆地理编码时，最多支持20个坐标点，超过20个坐标点，按20处理
+         */
+        public getAddress(location: (LngLat | Array<LngLat> | number[]), callback: (status: String, result: any) => void): void
+
+        /**
+         * 根据给定的地址描述进行解析，支持中文、拼音当status为complete时，
+         * result为GeocodeResult；当status为error时，result为错误信息info；
+         * 当status为no_data时，代表检索返回0结果
+         */
+        public getLocation(address: String, callback: (status: String, result: any) => void): void
     }
 }

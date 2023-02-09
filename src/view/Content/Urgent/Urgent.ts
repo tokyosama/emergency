@@ -21,7 +21,7 @@ class Urgent extends Actor {
 
     private satellite: any = null
 
-    public map: AMap.Map | null = null
+    public maps: AMap.Map | null = null
 
     public tools = ref<Array<Tools>>([
         { id: 1, icon: statusIcon, text: '图层' },
@@ -68,7 +68,7 @@ class Urgent extends Actor {
 
     private InitMap() {
         if (this.mapDom.value) {
-            this.map = new AMap.Map(this.mapDom.value, {
+            this.maps = new AMap.Map(this.mapDom.value, {
                 resizeEnable: true,
                 zoom: 12,
                 zooms: [3, 30],
@@ -77,14 +77,14 @@ class Urgent extends Actor {
             })
             //@ts-ignore
             this.satellite = new AMap.TileLayer.Satellite({
-                map: this.map
+                map: this.maps
             })
             this.satellite.hide()
         }
     }
 
     public x() {
-        MessageBox.Confirm("是否保存当前预案", () => { })
+        // MessageBox.Confirm("是否保存当前预案", () => { })
     }
 
 

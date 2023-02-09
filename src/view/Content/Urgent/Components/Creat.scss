@@ -10,7 +10,29 @@
     z-index: 24;
     border-radius: 10px;
     background: #333;
-    .map{
+
+    .blur {
+        position: absolute;
+        top: 32px;
+        width: 100%;
+        // min-height: 30px;
+        z-index: 3;
+
+        .item {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background: #fff;
+            z-index: 3;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-indent: 14px;
+            cursor: pointer;
+        }
+    }
+
+    .maps {
         // position: absolute;
         width: 450px;
         height: 250px;
