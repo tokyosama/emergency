@@ -9,7 +9,6 @@ const {
     mapDom,
     tools,
     addAlert,
-    form
 
 } = instance.InitStates()
 instance.InitHooks()
@@ -25,9 +24,11 @@ instance.Run()
             </div>
         </div>
         <div class="Create">
-            <el-button @click="addAlert = true">
-                click
-            </el-button>
+            <CreatVue></CreatVue>
+            <!-- <transition>
+                
+            </transition> -->
+
         </div>
 
 

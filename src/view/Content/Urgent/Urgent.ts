@@ -33,17 +33,17 @@ class Urgent extends Actor {
     public addAlert = ref(false)
 
     public form = reactive({
-        textarea: ''
+        name: '',
+        location: '',
+        lng: 0,
+        lat: 0,
     })
-
-    public textarea = ref('')
 
     public InitStates() {
         return {
             mapDom: this.mapDom,
             tools: this.tools,
             addAlert: this.addAlert,
-            form: this.form
         }
     }
 
