@@ -1,15 +1,18 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Actor } from "@/libs/Actor"
+import { Status } from './components/status/Status'
+import { Record } from './components/record/Record'
 import router from "@/router"
 
 class Monitor extends Actor {
     constructor() { super() }
-
-    public number=ref<number>(0)
+    public Status = new Status(this)
+    public Record = new Record(this)
+    public number = ref<number>(0)
 
     public InitStates() {
         return {
-            number:this.number
+            number: this.number
 
         }
     }
@@ -34,11 +37,11 @@ class Monitor extends Actor {
 
     public Add(): void {
         console.log('aa');
-        
+
         // router.push({ path: '/Redirect', query: {} })
         // router.push({ path: '/Redirect/Info', query: {} })
 
-        
+
     }
 }
 

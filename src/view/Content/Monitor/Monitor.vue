@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { provide } from 'vue'
 import { Monitor } from './Monitor'
-
+import StatusVue from './components/status/Status.vue';
+import RecordVue from './components/record/Record.vue';
 const instance = new Monitor()
 provide('instance', instance)
 const {
@@ -13,9 +14,8 @@ instance.Run()
 
 <template>
     <div class="Monitor">
-        <div>Monitor</div>
-        <!-- <el-button @click="instance.Add()">{{ number }}</el-button> -->
-
+        <StatusVue></StatusVue>
+        <RecordVue></RecordVue>
     </div>
 </template>
 
